@@ -136,7 +136,20 @@ We see the outcome of their choice,
 but the outcome of the alternative path remains forever a shadow.
 Nonetheless,
 we can never observe both potential outcomes
-for the same individual at the same time.
+for the same individual at the same time.^[
+    One might argue that we can observe both potential outcomes
+    for the same individual by recording their income
+    in two different years,
+    one year when they did not participate in the job training program
+    and another year when they did.
+    However, this line of reasoning is flawed 
+    because it assumes that the potential outcomes are stable over time,
+    which is often not the case.
+    Instead, it would be more appropriate to consider the same individual
+    at the different time points as different units,
+    and then we still face the fundamental problem of causal inference
+    because we can only observe one potential outcome for each unit.
+]
 The observed outcome $Y_i$, therefore, is related to the potential outcomes as follows:
 $$
 \begin{align*}
@@ -149,21 +162,6 @@ $$
 Y_i = Y_i(D_i).
 \end{align*}
 $$ {#eq:consistency-2}
-
-:::comment
-One might argue that we can observe both potential outcomes
-for the same individual by recording their income
-in two different years,
-one year when they did not participate in the job training program
-and another year when they did.
-However, this line of reasoning is flawed 
-because it assumes that the potential outcomes are stable over time,
-which is often not the case.
-Instead, it would be more appropriate to consider the same individual
-at the different time points as different units,
-and then we still face the fundamental problem of causal inference
-because we can only observe one potential outcome for each unit.
-:::
 
 ### Stable Unit Treatment Value Assumption (SUTVA)
 
@@ -293,7 +291,13 @@ and the second equality follows from the definition of $\tau_{\text{ATT}}$.
 In @eq:selection-bias,
 the second term on the right-hand side
 is the bias from selection into treatment,
-or **selection bias** for short,
+or **selection bias** for short,^[
+    The term "selection bias" has different meanings in different contexts.
+    Sometimes, it refers to biases that arise from non-random sampling of units into the study;
+    i.e., selection into the sample.
+    Here, we use it to refer to biases that arise from
+    selection into treatment.
+]
 which captures the difference
 in the average potential outcome under control $Y_i(0)$
 between the treated ($D_i = 1$) and untreated groups ($D_i = 0$).
@@ -315,14 +319,6 @@ For instance, if individuals who opt into a job training program are generally m
 or have higher baseline skills than those who do not, 
 the selection bias would likely lead to an overestimation of the treatment effect
 when naively comparing outcomes between the two groups.
-
-:::comment
-The term "selection bias" has different meanings in different contexts.
-Sometimes, it refers to biases that arise from non-random sampling of units into the study;
-i.e., selection into the sample.
-Here, we use it to refer to biases that arise from
-selection into treatment.
-:::
 
 ### Randomized Experiments
 

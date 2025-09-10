@@ -213,7 +213,8 @@
       We see the outcome of their choice, but the outcome of the
       alternative path remains forever a shadow. Nonetheless, we can
       never observe both potential outcomes for the same individual at
-      the same time. The observed outcome <span
+      the same time.<a href="#fn1" class="footnote-ref" id="fnref1"
+      role="doc-noteref"><sup>1</sup></a> The observed outcome <span
       class="math inline">\(Y_i\)</span>, therefore, is related to the
       potential outcomes as follows: <span id="eq:consistency-1"><span
       class="math display">\[
@@ -226,18 +227,6 @@
       Y_i = Y_i(D_i).
       \end{align*}
       \qquad{(2)}\]</span></span></p>
-      <div class="comment">
-      <p>One might argue that we can observe both potential outcomes for
-      the same individual by recording their income in two different
-      years, one year when they did not participate in the job training
-      program and another year when they did. However, this line of
-      reasoning is flawed because it assumes that the potential outcomes
-      are stable over time, which is often not the case. Instead, it
-      would be more appropriate to consider the same individual at the
-      different time points as different units, and then we still face
-      the fundamental problem of causal inference because we can only
-      observe one potential outcome for each unit.</p>
-      </div>
       <h3 id="stable-unit-treatment-value-assumption-sutva">Stable Unit
       Treatment Value Assumption (SUTVA)</h3>
       <p>While it seems straightforward to write the potential outcomes
@@ -357,8 +346,10 @@
       class="math inline">\(\tau_{\text{ATT}}\)</span>. In <a
       href="#eq:selection-bias">eq. 3</a>, the second term on the
       right-hand side is the bias from selection into treatment, or
-      <strong>selection bias</strong> for short, which captures the
-      difference in the average potential outcome under control <span
+      <strong>selection bias</strong> for short,<a href="#fn2"
+      class="footnote-ref" id="fnref2"
+      role="doc-noteref"><sup>2</sup></a> which captures the difference
+      in the average potential outcome under control <span
       class="math inline">\(Y_i(0)\)</span> between the treated (<span
       class="math inline">\(D_i = 1\)</span>) and untreated groups
       (<span class="math inline">\(D_i = 0\)</span>). Selection bias
@@ -379,13 +370,6 @@
       those who do not, the selection bias would likely lead to an
       overestimation of the treatment effect when naively comparing
       outcomes between the two groups.</p>
-      <div class="comment">
-      <p>The term “selection bias” has different meanings in different
-      contexts. Sometimes, it refers to biases that arise from
-      non-random sampling of units into the study; i.e., selection into
-      the sample. Here, we use it to refer to biases that arise from
-      selection into treatment.</p>
-      </div>
       <h3 id="randomized-experiments">Randomized Experiments</h3>
       <p>If we, like Frost’s lone traveler, cannot travel both roads,
       how can we ever hope to learn about causal effects?</p>
@@ -440,6 +424,30 @@
       potential outcomes framework, still, provides a foundation for
       developing methods to identify and estimate causal effects from
       observational data, which we will explore in future posts.</p>
+      <section id="footnotes"
+      class="footnotes footnotes-end-of-document" role="doc-endnotes">
+      <hr />
+      <ol>
+      <li id="fn1"><p> One might argue that we can observe both
+      potential outcomes for the same individual by recording their
+      income in two different years, one year when they did not
+      participate in the job training program and another year when they
+      did. However, this line of reasoning is flawed because it assumes
+      that the potential outcomes are stable over time, which is often
+      not the case. Instead, it would be more appropriate to consider
+      the same individual at the different time points as different
+      units, and then we still face the fundamental problem of causal
+      inference because we can only observe one potential outcome for
+      each unit.<a href="#fnref1" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn2"><p> The term “selection bias” has different meanings
+      in different contexts. Sometimes, it refers to biases that arise
+      from non-random sampling of units into the study; i.e., selection
+      into the sample. Here, we use it to refer to biases that arise
+      from selection into treatment.<a href="#fnref2"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      </ol>
+      </section>
     </main>
 </body>
 </html>
