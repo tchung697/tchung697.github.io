@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title$</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"$if(is_home)$ class="current"$endif$>Home</a> | 
+            <a href="notes.html"$if(is_notes)$ class="current"$endif$>Notes</a>
+        </nav>
+    </header>
+    <main>
+      <h1>$title$</h1>
+      $if(date)$<p class="post-date">$date$</p>$endif$
+      
+      $if(toc)$
+      <input type="checkbox" id="toc-toggle" class="toc-toggle">
+      <label for="toc-toggle">
+        <nav id="TOC">
+          $toc$
+        </nav>
+      </label>
+      $endif$
+      
+      $body$
+    </main>
+</body>
+</html>

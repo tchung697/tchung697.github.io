@@ -1,0 +1,168 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+main {
+  display: block;
+  position: relative;
+}
+
+h1, h2, h3 {
+  color: #222;
+}
+
+href {
+  color: #0066cc;
+}
+
+code {
+  background: #f4f4f4; 
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+}
+
+pre { 
+  background: #f4f4f4; 
+  padding: 1rem; 
+  border-radius: 5px; 
+  overflow-x: auto; 
+}
+        
+blockquote { 
+  border-left: 3px solid #ddd; 
+  padding-left: 1rem; 
+  margin-left: 0; 
+}
+      
+a { 
+  color: #0066cc; 
+  text-decoration: none; 
+}
+        
+a:hover { 
+  text-decoration: underline; 
+}
+
+/* Navigation Styles */
+
+nav a {
+  text-decoration: none;
+  color: #666;
+}
+
+nav a.current {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Table of Contents Styles */
+
+.toc-toggle {
+  display: none;
+}
+
+#TOC {
+  padding: 0;
+}
+
+#TOC::before {
+  content: "Contents ▼";
+  display: block;
+  font-size: 0.8rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s ease;
+}
+
+#TOC::before:hover {
+  color: #666;
+}
+
+.toc-toggle:checked + label #TOC::before {
+  content: "Contents ►";
+}
+
+#TOC ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.toc-toggle:checked + label #TOC ul {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+#TOC li {
+  margin: 0.4rem 0;
+}
+
+#TOC li ul {
+  margin-top: 0.2rem;
+  padding-left: 0.8rem;
+}
+
+#TOC a {
+  color: #555;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+
+#TOC a:hover {
+  color: #000;
+}
+
+/* Table Styles */
+
+table {
+  border-collapse: collapse;
+  margin: 1.5rem auto;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #f4f4f4;
+  font-weight: 600;
+  color: #222;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+tbody tr:nth-child(even):hover {
+  background: #f4f4f4;
+}
+
+td {
+  color: #333;
+  line-height: 1.2;
+}
