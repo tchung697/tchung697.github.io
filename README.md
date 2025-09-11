@@ -1,1 +1,3 @@
-This is my website.
+# tchung697.github.io
+
+This is my personal website hosted on GitHub Pages.
