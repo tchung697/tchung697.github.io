@@ -32,9 +32,10 @@ notes: docs
 		-f markdown -t html -o "docs/notes/$$basename.html" "$$file"; \
 	done
 
-# Clean generated files
+# Clean generated files but keep google site verification file
 clean:
-	rm -rf docs
+	find docs -type f ! -name 'google*.html' -delete
+	find docs -type d -empty -delete
 
 # Rebuild everything
 rebuild: clean all
