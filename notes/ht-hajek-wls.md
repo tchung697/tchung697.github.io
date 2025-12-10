@@ -1,7 +1,7 @@
 ---
 title: Horvitz-Thompson, Hajek, and Weighted Least Squares Estimators
 date: 2025-12-10
-is_note: true
+is_notes: true
 ---
 
 Let $Y_i$ be the outcome of interest for unit $i$, 
