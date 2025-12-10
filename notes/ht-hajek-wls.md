@@ -63,7 +63,7 @@ $$
 $$
 We can solve for $\hat{\alpha}$ by considering
 $$
-\min_{\alpha} \sum_{i: D_i=0} (Y_i - \alpha)^2,
+\min_{\alpha} \sum_{i: D_i=0} W_i (Y_i - \alpha)^2,
 $$
 which gives us
 $$

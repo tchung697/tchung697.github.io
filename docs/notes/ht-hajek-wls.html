@@ -90,7 +90,7 @@ Estimators</h1>
       \]</span> We can solve for <span
       class="math inline">\(\hat{\alpha}\)</span> by considering <span
       class="math display">\[
-      \min_{\alpha} \sum_{i: D_i=0} (Y_i - \alpha)^2,
+      \min_{\alpha} \sum_{i: D_i=0} W_i (Y_i - \alpha)^2,
       \]</span> which gives us <span class="math display">\[
       \hat{\alpha} = \frac{\sum_{i: D_i=0} W_i Y_i}{\sum_{i: D_i=0} W_i}
       = \frac{\sum_{i=1}^N \frac{(1 - D_i) Y_i}{1 -
