@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horvitz-Thompson, Hajek, and Weighted Least Squares
+Estimators</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/textmacros']},
+            tex: {packages: {'[+]': ['textmacros']}}
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a> | 
+            <a href="../notes.html">Notes</a>
+        </nav>
+    </header>
+    <main>
+      <h1>Horvitz-Thompson, Hajek, and Weighted Least Squares
+Estimators</h1>
+      <p class="post-date">2025-12-10</p>
+      
+            
+      <p>Let <span class="math inline">\(Y_i\)</span> be the outcome of
+      interest for unit <span class="math inline">\(i\)</span>, <span
+      class="math inline">\(D_i\)</span> be a binary treatment indicator
+      (<span class="math inline">\(1\)</span> if treated and <span
+      class="math inline">\(0\)</span> if control), and <span
+      class="math inline">\(X_i\)</span> be a vector of covariates for
+      unit <span class="math inline">\(i\)</span>. Let <span
+      class="math inline">\(e(X_i) = P(D_i = 1 \mid X_i)\)</span> be the
+      propensity score, the probability of receiving treatment given
+      covariates. A common strategy to estimate the <strong>average
+      treatment effect (ATE)</strong> under unconfoundedness and overlap
+      assumptions is to use <strong>inverse probability weighting
+      (IPW)</strong>. There are three popular estimators based on
+      IPW:</p>
+      <ol type="1">
+      <li><p><strong>Horvitz-Thompson Estimator</strong>: <span
+      class="math display">\[
+      \hat{\tau}^{\text{ht}}
+      = \frac{1}{N} \sum_{i=1}^N
+      \left( \frac{D_i Y_i}{e(X_i)} - \frac{(1 - D_i) Y_i}{1 - e(X_i)}
+      \right)
+      \]</span> This estimator weights each observed outcome by the
+      inverse of the probability of receiving the treatment actually
+      received.</p></li>
+      <li><p><strong>Hajek Estimator</strong>: <span
+      class="math display">\[
+      \hat{\tau}^{\text{hajek}}
+      = \frac{\sum_{i=1}^N \frac{D_i Y_i}{e(X_i)}}{\sum_{i=1}^N
+      \frac{D_i}{e(X_i)}}
+      - \frac{\sum_{i=1}^N \frac{(1 - D_i) Y_i}{1 -
+      e(X_i)}}{\sum_{i=1}^N \frac{(1 -
+      D_i)}{1 - e(X_i)}}
+      \]</span> This estimator normalizes the weights so that they sum
+      to one within each treatment group.</p></li>
+      <li><p><strong>Weighted Least Squares (WLS) Estimator</strong>:
+      Regress <span class="math inline">\(Y_i\)</span> on <span
+      class="math inline">\((1, D_i)\)</span> using weights <span
+      class="math inline">\(W_i\)</span>, where the weights are defined
+      as <span class="math display">\[
+      W_i = \frac{D_i}{e(X_i)} + \frac{(1 - D_i)}{1 - e(X_i)}.
+      \]</span> The coefficient on <span
+      class="math inline">\(D_i\)</span> from this regression, denoted
+      as <span class="math inline">\(\hat{\tau}^{\text{wls}}\)</span>,
+      is the WLS estimator of the ATE.</p></li>
+      </ol>
+      <p>All three estimators are consistent for the ATE under the
+      assumptions of unconfoundedness and overlap. Intrestingly, the
+      Hajek and WLS estimators are numerically equivalent, i.e., <span
+      class="math inline">\(\hat{\tau}^{\text{hajek}} =
+      \hat{\tau}^{\text{wls}}\)</span>, as can be shown by the following
+      derivation.</p>
+      <p>Let’s start with the minimization problem for the WLS
+      estimator: <span class="math display">\[
+      \begin{aligned}
+      &amp;\mathrel{\phantom{=}}
+      \min_{\tau} \sum_{i=1}^N W_i (Y_i - \alpha - D_i \tau)^2 \\
+      &amp;= \min_{\tau} \sum_{i: D_i=1} W_i (Y_i - \alpha - \tau)^2
+      + \sum_{i: D_i=0} W_i (Y_i - \alpha)^2.
+      \end{aligned}
+      \]</span> We can solve for <span
+      class="math inline">\(\hat{\alpha}\)</span> by considering <span
+      class="math display">\[
+      \min_{\alpha} \sum_{i: D_i=0} (Y_i - \alpha)^2,
+      \]</span> which gives us <span class="math display">\[
+      \hat{\alpha} = \frac{\sum_{i: D_i=0} W_i Y_i}{\sum_{i: D_i=0} W_i}
+      = \frac{\sum_{i=1}^N \frac{(1 - D_i) Y_i}{1 -
+      e(X_i)}}{\sum_{i=1}^N \frac{(1 -
+      D_i)}{1 - e(X_i)}}.
+      \]</span> Substituting <span
+      class="math inline">\(\hat{\alpha}\)</span> back into the WLS
+      minimization problem, we have <span class="math display">\[
+      \min_{\tau} \sum_{i: D_i=1} W_i (Y_i - \hat{\alpha} - \tau)^2.
+      \]</span> Taking the derivative with respect to <span
+      class="math inline">\(\tau\)</span> and setting it to zero, we
+      have <span class="math display">\[
+      \sum_{i: D_i=1} W_i (Y_i - \hat{\alpha} - \hat{\tau}^{\text{wls}})
+      = 0,
+      \]</span> which leads to <span class="math display">\[
+      \hat{\tau}^{\text{wls}}
+      = \frac{\sum_{i: D_i=1} W_i Y_i}{\sum_{i: D_i=1} W_i} -
+      \hat{\alpha}
+      = \frac{\sum_{i=1}^N \frac{D_i Y_i}{e(X_i)}}{\sum_{i=1}^N
+      \frac{D_i}{e(X_i)}}
+      - \frac{\sum_{i=1}^N \frac{(1 - D_i) Y_i}{1 -
+      e(X_i)}}{\sum_{i=1}^N \frac{(1 -
+      D_i)}{1 - e(X_i)}}
+      = \hat{\tau}^{\text{hajek}}.
+      \]</span> Thus, we have shown that the Hajek estimator and the WLS
+      estimator are numerically equivalent.</p>
+    </main>
+</body>
+</html>

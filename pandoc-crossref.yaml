@@ -1,0 +1,7 @@
+# pandoc-crossref configuration file
+
+eqnPrefix: ["Equation", "Equations"]
+figPrefix: ["Figure", "Figures"]
+tblPrefix: ["Table", "Tables"]
+lstPrefix: ["Listing", "Listings"]
+secPrefix: ["Section", "Sections"]
