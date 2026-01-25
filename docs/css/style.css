@@ -4,7 +4,7 @@ body {
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #444;
 }
 
 main {
@@ -12,8 +12,8 @@ main {
   position: relative;
 }
 
-h1, h2, h3 {
-  color: #222;
+h1, h2, h3, h4 {
+  color: #333;
 }
 
 href {
@@ -166,3 +166,17 @@ td {
   color: #333;
   line-height: 1.2;
 }
+
+/* Paper */
+
+.paper h4 {
+  margin-bottom: 0.2em;
+  font-weight: 500;
+}
+
+.paper h4 + p {
+  color: #777;
+  font-size: 0.9rem;
+  margin: 0 0 0.8em 0;
+}
+
