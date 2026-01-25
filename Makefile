@@ -12,7 +12,7 @@ NOTES_SRC = $(wildcard notes/*.md)
 NOTES_HTML = $(patsubst notes/%.md,$(NOTES_OUT_DIR)/%.html,$(NOTES_SRC))
 
 # Default target
-all: directories docs/index.html docs/notes.html docs/css $(NOTES_HTML)
+all: directories docs/index.html docs/notes.html docs/research.html docs/css $(NOTES_HTML)
 
 # Create directories
 directories:
@@ -25,6 +25,9 @@ docs/index.html: index.md $(INDEX_TMPL) | directories
 	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
 
 docs/notes.html: notes.md $(INDEX_TMPL) | directories
+	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
+
+docs/research.html: research.md $(INDEX_TMPL) | directories
 	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
 
 # Copy CSS files (only if changed)
@@ -43,8 +46,8 @@ $(NOTES_OUT_DIR)/%.html: notes/%.md $(POSTS_TMPL) $(LUA_DIAGRAM) | directories
 		--template ../../$(POSTS_TMPL) \
 		--standalone \
 		--mathjax \
-		--filter pandoc-crossref \
 		--lua-filter=../../$(LUA_DIAGRAM) \
+		--filter pandoc-crossref \
 		--extract-media=../media \
 		-M linkReferences=true \
 		-M nameInLink=true \
