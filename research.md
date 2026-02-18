@@ -9,7 +9,7 @@ is_research: true
 
 #### "The Proximal Surrogate Index: Long-Term Treatment Effects under Unobserved Confounding"
 with [Yu-Chang Chen](https://yu-chang-chen.github.io/) · 
-[Paper](https://drive.google.com/file/d/1xHneCjnfDWTUJOSBQaP0qeOus6Jrg8Ef/view?usp=sharing)
+[Paper](https://arxiv.org/abs/2601.17712)
 
 We study the identification and estimation of long-term treatment effects under
 unobserved confounding by combining an experimental sample, where the long-term
