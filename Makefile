@@ -6,19 +6,23 @@ INDEX_TMPL = $(TEMPLATES_DIR)/index.html
 LUA_DIAGRAM = lua/diagram.lua
 MEDIA_DIR = docs/media
 NOTES_OUT_DIR = docs/notes
+PRIVATE_NOTES = notes/me-iv.md
 
 # Source files
-NOTES_SRC = $(wildcard notes/*.md)
+NOTES_SRC = $(filter-out $(PRIVATE_NOTES),$(wildcard notes/*.md))
 NOTES_HTML = $(patsubst notes/%.md,$(NOTES_OUT_DIR)/%.html,$(NOTES_SRC))
+CSS_SRC = $(wildcard css/*)
+CSS_OUT = $(patsubst css/%,docs/css/%,$(CSS_SRC))
 
 # Default target
-all: directories docs/index.html docs/notes.html docs/research.html docs/css $(NOTES_HTML)
+all: directories docs/index.html docs/notes.html docs/research.html docs/robots.txt $(CSS_OUT) $(NOTES_HTML)
 
 # Create directories
 directories:
 	@mkdir -p docs
 	@mkdir -p $(NOTES_OUT_DIR)
 	@mkdir -p $(MEDIA_DIR)
+	@mkdir -p docs/css
 
 # Convert root markdown files to HTML (only if source or template changed)
 docs/index.html: index.md $(INDEX_TMPL) | directories
@@ -30,13 +34,12 @@ docs/notes.html: notes.md $(INDEX_TMPL) | directories
 docs/research.html: research.md $(INDEX_TMPL) | directories
 	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
 
-# Copy CSS files (only if changed)
-docs/css: css | directories
-	@if [ ! -d "$@" ] || [ "$(shell find css -newer docs/css 2>/dev/null | head -1)" ]; then \
-		echo "Copying CSS files..."; \
-		cp -r css docs/; \
-		touch docs/css; \
-	fi
+docs/robots.txt: robots.txt | directories
+	cp $< $@
+
+# Copy CSS files only when their sources changed.
+docs/css/%: css/% | directories
+	cp $< $@
 
 # Pattern rule for converting notes markdown files to HTML
 $(NOTES_OUT_DIR)/%.html: notes/%.md $(POSTS_TMPL) $(LUA_DIAGRAM) | directories
@@ -75,4 +78,4 @@ help:
 	@echo "  rebuild  - Clean and rebuild all"
 	@echo "  help     - Show this help"
 
-.PHONY: all docs html css notes clean rebuild help
+.PHONY: all directories clean rebuild help

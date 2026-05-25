@@ -1,6 +1,8 @@
 ---
 title: Notes
 is_notes: true
+description: "Notes by Ting-Chih Hung on causal inference, econometrics, and related topics."
+canonical_url: "https://tchung697.github.io/notes.html"
 ---
 
 I write notes to make sense of things I learn. 

@@ -1,6 +1,8 @@
 ---
 title: Research
 is_research: true
+description: "Research by Ting-Chih Hung in applied microeconomics and applied econometrics."
+canonical_url: "https://tchung697.github.io/research.html"
 ---
 
 ## Working Papers

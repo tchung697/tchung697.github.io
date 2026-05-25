@@ -2,6 +2,8 @@
 title: Potential Outcomes Framework in a Nutshell
 date: 2025-08-30
 is_notes: true
+description: "A concise introduction to the potential outcomes framework for causal inference."
+canonical_url: "https://tchung697.github.io/notes/potential-outcomes-nutshell.html"
 ---
 
 To act upon the world is to assume a grasp of causality.

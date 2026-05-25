@@ -2,6 +2,8 @@
 title: Horvitz-Thompson, Hajek, and Weighted Least Squares Estimators
 date: 2025-12-10
 is_notes: true
+description: "A note deriving the relationship between Horvitz-Thompson, Hajek, and weighted least squares estimators for average treatment effects."
+canonical_url: "https://tchung697.github.io/notes/ht-hajek-wls.html"
 ---
 
 Let $Y_i$ be the outcome of interest for unit $i$, 
@@ -92,6 +94,5 @@ D_i)}{1 - e(X_i)}}
 $$
 Thus, we have shown that the Hajek estimator
 and the WLS estimator are numerically equivalent.
-
 
 

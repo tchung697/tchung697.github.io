@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    $if(description)$<meta name="description" content="$description$">$endif$
+    <meta name="robots" content="index, follow">
+    $if(canonical_url)$<link rel="canonical" href="$canonical_url$">$endif$
     <title>$title$</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
