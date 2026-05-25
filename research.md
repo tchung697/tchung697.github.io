@@ -13,6 +13,9 @@ canonical_url: "https://tchung697.github.io/research.html"
 with [Yu-Chang Chen](https://yu-chang-chen.github.io/) · 
 [Paper](https://arxiv.org/abs/2601.17712)
 
+<details class="abstract">
+<summary>Abstract</summary>
+
 We study the identification and estimation of long-term treatment effects under
 unobserved confounding by combining an experimental sample, where the long-term
 outcome is missing, with an observational sample, where the treatment assignment is
@@ -22,5 +25,7 @@ unobserved confounders. We further develop multiply robust estimation and infere
 procedures based on these results. Applying our method to the Job Corps program,
 we demonstrate its ability to recover experimental benchmarks even when unobserved
 confounders bias standard surrogate index estimates.
+
+</details>
 
 </div>

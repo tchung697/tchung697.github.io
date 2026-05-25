@@ -194,3 +194,20 @@ td {
   font-size: 0.9rem;
   margin: 0 0 0.8em 0;
 }
+
+.abstract {
+  margin-top: 0.8rem;
+}
+
+.abstract summary {
+  color: #777;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.abstract p {
+  border-left: 2px solid #ddd;
+  color: #555;
+  margin: 0.6rem 0 0;
+  padding-left: 1rem;
+}
