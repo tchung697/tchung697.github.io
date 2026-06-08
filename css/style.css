@@ -2,7 +2,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   color: #444;
 }
@@ -36,12 +36,16 @@ blockquote {
 }
       
 a { 
-  color: #0066cc; 
-  text-decoration: none; 
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #8ab4e6;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
 }
         
 a:hover { 
-  text-decoration: underline; 
+  color: #0066cc;
+  text-decoration-color: #0066cc;
 }
 
 /* Navigation Styles */
@@ -73,6 +77,16 @@ header nav a:hover {
 header nav a.current {
   color: #333;
   border-bottom: 1px solid #333;
+}
+
+/* Profile Links */
+
+.profile-links {
+  margin: 1rem 0 1.6rem;
+}
+
+.profile-links p {
+  margin: 0;
 }
 
 /* Table of Contents Styles */
@@ -189,20 +203,33 @@ td {
   font-weight: 500;
 }
 
-.paper h4 + p {
+.paper h4 + p,
+.paper-meta {
   color: #777;
   font-size: 0.9rem;
-  margin: 0 0 0.8em 0;
+  margin: 0 0 0.2em 0;
 }
 
 .abstract {
-  margin-top: 0.8rem;
+  display: inline;
+  margin: 0;
 }
 
 .abstract summary {
-  color: #777;
+  color: inherit;
   cursor: pointer;
+  display: inline;
   font-size: 0.9rem;
+  text-decoration: underline;
+  text-decoration-color: #8ab4e6;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+.abstract summary:hover {
+  color: #0066cc;
+  text-decoration-color: #0066cc;
+  text-decoration: underline;
 }
 
 .abstract p {

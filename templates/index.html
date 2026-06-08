@@ -7,6 +7,9 @@
     <meta name="robots" content="index, follow">
     $if(canonical_url)$<link rel="canonical" href="$canonical_url$">$endif$
     <title>$title$</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +17,6 @@
         <nav>
             <a href="index.html"$if(is_home)$ class="current"$endif$>Home</a>
             <a href="notes.html"$if(is_notes)$ class="current"$endif$>Notes</a>
-            <a href="research.html"$if(is_research)$ class="current"$endif$>Research</a>
         </nav>
     </header>
     <main>

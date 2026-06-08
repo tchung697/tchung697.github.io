@@ -15,7 +15,7 @@ CSS_SRC = $(wildcard css/*)
 CSS_OUT = $(patsubst css/%,docs/css/%,$(CSS_SRC))
 
 # Default target
-all: directories docs/index.html docs/notes.html docs/research.html docs/robots.txt $(CSS_OUT) $(NOTES_HTML)
+all: directories docs/index.html docs/notes.html docs/robots.txt $(CSS_OUT) $(NOTES_HTML)
 
 # Create directories
 directories:
@@ -29,9 +29,6 @@ docs/index.html: index.md $(INDEX_TMPL) | directories
 	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
 
 docs/notes.html: notes.md $(INDEX_TMPL) | directories
-	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
-
-docs/research.html: research.md $(INDEX_TMPL) | directories
 	$(PANDOC) --template=$(INDEX_TMPL) --standalone -f markdown -t html -o $@ $<
 
 docs/robots.txt: robots.txt | directories
